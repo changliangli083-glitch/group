@@ -78,7 +78,7 @@ class Controller(app_manager.RyuApp):
         parser = dp.ofproto_parser
         ofp = dp.ofproto
         for h in range(self.k):
-            port = h + 1
+            port = h + 1 + self.k
             ip_dst = f"10.2.1.{h + 2}"
             match = parser.OFPMatch(eth_type=0x0800, ipv4_dst=ip_dst)
             actions = [parser.OFPActionOutput(port)]  # TCP 4条路径
